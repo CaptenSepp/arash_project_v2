@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:vrouter/vrouter.dart';
 
-import '../Screens/screens/homepage.dart';
+import '../Screens/screens/home_page.dart';
+import '../Screens/screens/login_page.dart';
+import '../Screens/screens/settings_page.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(title: 'ARASH'),
+    return VRouter(
+      debugShowCheckedModeBanner: false, // VRouter acts as a MaterialApp
+      mode: VRouterMode.history, // Remove the '#' from the url
+      // logs: [VLogLevel.info], // Defines which logs to show, info is the default
+      routes: [
+        VWidget(
+          path: '/',
+          widget: const HomePage(),
+        ),
+        VWidget(
+          path: '/login',
+          widget: const LoginPage(),
+        ),
+        VWidget(
+          path: '/login',
+          widget: const SettingPage(),
+        ),
+      ],
     );
   }
 }

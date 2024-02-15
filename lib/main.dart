@@ -3,5 +3,5 @@ import 'package:arash_project_v2/core/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const App());
+  runApp(const MyApp());
 }
